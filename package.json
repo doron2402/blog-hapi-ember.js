@@ -1,0 +1,29 @@
+{
+  "name": "blog",
+  "version": "0.0.0",
+  "description": "blog using ember and hapi.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doron2402/blog-hapi-ember.js.git"
+  },
+  "keywords": [
+    "node.js",
+    "hapi.js",
+    "hapi",
+    "joy"
+  ],
+  "author": "Doron Segal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doron2402/blog-hapi-ember.js/issues"
+  },
+  "homepage": "https://github.com/doron2402/blog-hapi-ember.js",
+  "dependencies": {
+    "joi": "~4.0.0",
+    "hapi": "~4.1.4"
+  }
+}
