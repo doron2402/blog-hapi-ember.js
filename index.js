@@ -26,6 +26,8 @@ server.route(
     	routes.Site.public,
     	routes.Site.main,
     	routes.Site.api_about,
+        routes.Posts.get_all_posts,
+        routes.Posts.update_post
     ]
 );
 server.start(function() {

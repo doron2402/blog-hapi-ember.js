@@ -2,7 +2,9 @@ App = Ember.Application.create();
 
 App.Store = DS.Store.extend({
 	revision: 12,
-	adapter: 'DS.FixtureAdapter'
+	adapter: DS.RESTAdapter.extend({
+		url: 'http://localhost:5000/api'
+	})
 });
 
 App.Router.map(function(){
@@ -11,6 +13,12 @@ App.Router.map(function(){
 	});
 	this.resource('about');
 	this.resource('contact');
+});
+
+App.IndexRoute = Ember.Route.extend({
+	redirect: function() {
+		this.transitionTo('posts');
+	}
 });
 
 App.PostsRoute = Ember.Route.extend({
@@ -26,6 +34,7 @@ App.PostController = Ember.ObjectController.extend({
 	},
 	doneEdit: function(){
 		this.set('isEditing', false);
+		this.get('store').commit();
 	}
 });
 
@@ -36,29 +45,6 @@ App.Post = DS.Model.extend({
 	extended: DS.attr('string'),
 	publishedAt: DS.attr('date')
 });
-
-App.Post.FIXTURES = [{
-		id: 1,
-		title: 'title 1',
-		author: 'Doron Segal',
-		publishedAt: new Date('1-1-2014'),
-		intro: "intro 1111 intro 1111 intro 1111 intro 1111 intro 1111 ",
-		extended: "extended 1111 extended 1111extended 1111extended 1111extended 1111extended 1111extended 1111extended 1111"
-	},{
-		id: 2,
-		title: 'title 2',
-		author: 'Doron Segal',
-		publishedAt: new Date('1-2-2014'),
-		intro: "intro 2222 intro 2222 intro 22222 intro 2222 intro 2222 ",
-		extended: "extended 2222 extended extended 2222 extended extended 2222 extended extended 2222 extended extended 2222 extended "
-	},{
-		id: 3,
-		title: 'title 3',
-		author: 'Doron Segal',
-		publishedAt: new Date('1-3-2014'),
-		intro: "intro 33333 intro 33333intro 33333intro 33333intro 33333intro 33333intro 33333",
-		extended: "extended 3333 extended 3333 extended 3333extended 3333extended 3333 extended 3333extended 3333extended 3333extended 3333extended 3333extended 3333"
-	}];
 
 Ember.Handlebars.registerBoundHelper('from_now_date', function(date){
 	return moment(date).fromNow();
