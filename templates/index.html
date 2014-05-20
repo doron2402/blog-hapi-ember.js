@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
 <html>
   <head lang="en">
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %><% mode %></title>
-    <link rel="stylesheet" type="text/css" href="public/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="public/bower_components/foundation/css/foundation.min.css">
   </head>
   <body>
   <% if (mode) { %>
@@ -11,30 +13,35 @@
   <% } %>
   
   <script type="text/x-handlebars">
-  <div class="container">
-    <div class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Blog</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li>{{#linkTo 'posts'}}My Posts{{/linkTo}}</li>
-            <li>{{#linkTo 'contact'}}About Me{{/linkTo}}</li>
-            <li>{{#linkTo 'contact'}}Contact Me{{/linkTo}}</li>
-            
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div><!--/.container-fluid -->
+  <div class="row">
+    <div class="large-3 columns">
+      <h1>My Blog</h1>
     </div>
-    {{outlet}}
-  </div><!-- container -->
+    <div class="large-9 columns">
+      <ul class="inline-list right">
+        <li>{{#linkTo 'posts'}}My Posts{{/linkTo}}</li>
+        <li>{{#linkTo 'about'}}About Me{{/linkTo}}</li>
+        <li>{{#linkTo 'contact'}}Contact Me{{/linkTo}}</li>
+      </ul>
+    </div>
+  </div>
+  
+    <div class="row">    
+      <div class="large-9 push-3 columns">
+        {{outlet}}
+      </div>
+      <div class="large-3 pull-9 columns">
+        <ul class="side-nav">
+          <li><a href="#">Section 1</a></li>
+          <li><a href="#">Section 2</a></li>
+          <li><a href="#">Section 3</a></li>
+          <li><a href="#">Section 4</a></li>
+          <li><a href="#">Section 5</a></li>
+          <li><a href="#">Section 6</a></li>
+        </ul>
+        <p><img src="http://placehold.it/320x240&text=Ad" /></p>      
+      </div>
+    </div>
   </script>
 
   <script type="text/x-handlebars" id="posts">
