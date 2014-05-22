@@ -93,30 +93,72 @@
     </div>
   </script>
   
-  <script type="text/x-handlebars" id="contact">
-    <div class="row">    
-      <div class="large-9 push-3 columns">
-        <form>
-        <div class="row">
-          <div class="large-6 columns">
-            <label class="error">Error</label>
-            <input type="text" class="error" />
-            <small class="error">Invalid entry</small>
-          </div>
-          <div class="large-6 columns error">
-            <label>Another Error</label>
-            <input type="text" />
-            <small>Invalid entry</small>
-          </div>
-        </div>
-        <textarea class="error" placeholder="Message..."></textarea>
-        <small class="error">Invalid entry</small>
-      </form>
-      </div>
-      <div class="large-3 pull-9 columns">
-        <h2>Contact Me</h2>
-      </div>
+<script type="text/x-handlebars" data-template-name="contact-me-view">
+    <h1>Send the message:</h1>
+    <div class="send_form">
+        {{view Ember.TextField value=view.message}}
+        <button type="submit" {{action "submit" target=view}}>Done</button>
+         <button type="submit" {{action "clear" target=view}}>clear</button>
     </div>
+    <div class="row">
+    <form>
+    <h2>Contact Me</h2>
+  <div class="row">
+    <div class="large-6 columns">
+      <label>Full Name
+        <input type="text" placeholder="Full Name" />
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+      <label>Email (Must)
+        <input type="text" placeholder="Email" />
+      </label>
+    </div>
+    <div class="large-4 columns">
+      <label>Phone (Optinal)
+        <input type="text" placeholder="Phone Number" />
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+      <label>Personal Site
+        {{input type="text" name="personal_site" placeholder="Personal Site" size="50"}}
+        {{view Ember.TextField value=view.message}}
+      </label>
+    </div>
+    <div class="large-4 columns">
+      <label>How did you heard about us?
+        <select>
+          <option value="false">How did you heard about us?</option>
+          <option value="friend">friend</option>
+          <option value="google">Google</option>
+          <option value="linkedin">LinkedIn</option>
+          <option value="github">Github</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <label>Leave us a message
+        <textarea placeholder="Your message"></textarea>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <a href="#" class="button [alert]" {{action clearContactForm}}>Clear Form</a>
+    <a href="#" class="button [radius round]" {{action submitContactForm}}>Contact Me</a>
+  </div>
+</form>
+</div>
+</script>
+
+  <script type="text/x-handlebars" id="contact">
+    {{view App.ContactView}}
   </script>
 
       <!-- Javascript -->

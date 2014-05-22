@@ -38,6 +38,30 @@ App.PostController = Ember.ObjectController.extend({
 	}
 });
 
+App.ContactView =  Ember.View.extend({
+	templateName: 'contact-me-view',
+    message: '',
+    
+    actions: {
+      submit: function(event) {
+        console.log(this.get('message'));
+      },
+        clear: function(event) {
+        console.log('clear');
+            this.set('message','');
+        }
+    }
+});
+
+
+App.Contact = DS.Model.extend({
+	name: DS.attr('string'),
+	phone: DS.attr('string'),
+	email: DS.attr('email'),
+	message: DS.attr('string'),
+	contactAt: DS.attr('date')
+});
+
 App.Post = DS.Model.extend({
 	title: DS.attr('string'),
 	author: DS.attr('string'),
