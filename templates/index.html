@@ -94,64 +94,50 @@
   </script>
   
 <script type="text/x-handlebars" data-template-name="contact-me-view">
-    <h1>Send the message:</h1>
-    <div class="send_form">
-        {{view Ember.TextField value=view.message}}
-        <button type="submit" {{action "submit" target=view}}>Done</button>
-         <button type="submit" {{action "clear" target=view}}>clear</button>
-    </div>
     <div class="row">
     <form>
     <h2>Contact Me</h2>
   <div class="row">
     <div class="large-6 columns">
       <label>Full Name
-        <input type="text" placeholder="Full Name" />
+        {{view Ember.TextField value=view.fullname}}
       </label>
     </div>
   </div>
   <div class="row">
     <div class="large-4 columns">
       <label>Email (Must)
-        <input type="text" placeholder="Email" />
+        {{view Ember.TextField value=view.email}}
       </label>
     </div>
     <div class="large-4 columns">
       <label>Phone (Optinal)
-        <input type="text" placeholder="Phone Number" />
+        {{view Ember.TextField value=view.phone}}
       </label>
     </div>
   </div>
   <div class="row">
     <div class="large-4 columns">
       <label>Personal Site
-        {{input type="text" name="personal_site" placeholder="Personal Site" size="50"}}
-        {{view Ember.TextField value=view.message}}
+        {{view Ember.TextField value=view.site placeholder="Personal Site"}}
       </label>
     </div>
     <div class="large-4 columns">
       <label>How did you heard about us?
-        <select>
-          <option value="false">How did you heard about us?</option>
-          <option value="friend">friend</option>
-          <option value="google">Google</option>
-          <option value="linkedin">LinkedIn</option>
-          <option value="github">Github</option>
-          <option value="other">Other</option>
-        </select>
+        {{view Ember.Select content=reffers value=view.selectedName}}
       </label>
     </div>
   </div>
   <div class="row">
     <div class="large-6 columns">
       <label>Leave us a message
-        <textarea placeholder="Your message"></textarea>
+        {{view Ember.TextArea value=view.message placeholder="Your Message"}}
       </label>
     </div>
   </div>
   <div class="row">
-    <a href="#" class="button [alert]" {{action clearContactForm}}>Clear Form</a>
-    <a href="#" class="button [radius round]" {{action submitContactForm}}>Contact Me</a>
+    <button type="submit" {{action "submit" target=view}}>Done</button>
+    <button type="submit" {{action "clear" target=view}}>clear</button>
   </div>
 </form>
 </div>

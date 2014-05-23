@@ -37,14 +37,22 @@ App.PostController = Ember.ObjectController.extend({
 		this.get('store').commit();
 	}
 });
+App.ContactController = Ember.Controller.extend({
+	selectedReffer: 'Google',
+	reffers: ['Other','Google','linkedin','facebook','github']
+});
 
 App.ContactView =  Ember.View.extend({
 	templateName: 'contact-me-view',
-    message: '',
-    
+
     actions: {
       submit: function(event) {
         console.log(this.get('message'));
+        console.log(this.get('email'));
+        console.log(this.get('phone'));
+        console.log(this.get('fullname'));
+        console.log(this.get('site'));
+        console.log(this.get('selectedReffer'));
       },
         clear: function(event) {
         console.log('clear');
