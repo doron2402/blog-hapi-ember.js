@@ -10,6 +10,10 @@ dblog.settings = require('config/settings.js')(node_env);
 dblog.lodash = require('lodash');
 dblog.Hapi = require('hapi');
 dblog.Joi = require('joi');
+dblog.Mongoose = require('mongoose');
+dblog.Mongoose.connect(dblog.settings.mongodb.host);
+dblog.Schema = require('./schemas').Schema;
+dblog.Model = require('./models').Model;
 
 var routes = require('./routes');
 var options = {};
@@ -27,7 +31,8 @@ server.route(
     	routes.Site.main,
     	routes.Site.api_about,
         routes.Posts.get_all_posts,
-        routes.Posts.update_post
+        routes.Posts.update_post,
+        routes.Contact.form_submit
     ]
 );
 server.start(function() {
