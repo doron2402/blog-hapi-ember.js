@@ -26,7 +26,7 @@
   "dependencies": {
     "joi": "~4.0.0",
     "hapi": "~4.1.4",
-    "lodash": "~2.4.1",
+    "lodash": "~4.17.15",
     "nodemon": "~1.0.19"
   }
 }
