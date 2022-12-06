@@ -25,7 +25,7 @@
   "homepage": "https://github.com/doron2402/blog-hapi-ember.js",
   "dependencies": {
     "joi": "~4.0.0",
-    "hapi": "~4.1.4",
+    "hapi": "~11.0.4",
     "lodash": "~2.4.1",
     "nodemon": "~1.0.19"
   }
